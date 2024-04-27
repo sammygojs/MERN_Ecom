@@ -29,6 +29,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('Successfully connected to MongoDB'))
 .catch(err => console.log('MongoDB connection error:', err));
 
+const validateTokenRouter = require('./routes/validateToken'); // Adjust the path as necessary
+app.use('/api', validateTokenRouter);
+
 // Routes
 app.use('/api/users', userRoutes);
 
